@@ -82,10 +82,10 @@
 }
 
 @keyframes scroll {
-  0% {
-    transform: translateX(0);
+  from {
+    transform: translateX(0%);
   }
-  100% {
+  to {
     transform: translateX(-50%);
   }
 }

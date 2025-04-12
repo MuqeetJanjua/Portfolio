@@ -15,10 +15,10 @@ const Footer = () => {
             <a href="https://github.com/MuqeetJanjua" target="_blank" rel="noopener noreferrer">
               GitHub
             </a>
-            <a href="https://linkedin.com/in/your-profile" target="_blank" rel="noopener noreferrer">
+            <a href="https://linkedin.com/in/muqeet-ahmad-523650214/" target="_blank" rel="noopener noreferrer">
               LinkedIn
             </a>
-            <a href="mailto:your.email@example.com">
+            <a href="mailto:muqeetahmad25@gmail.com">
               Email
             </a>
           </div>

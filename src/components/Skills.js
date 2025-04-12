@@ -20,7 +20,7 @@ const Skills = () => {
     { name: 'MaterialUI', logo: 'https://raw.githubusercontent.com/devicons/devicon/master/icons/materialui/materialui-original.svg' },
     { name: 'Redux', logo: 'https://raw.githubusercontent.com/devicons/devicon/master/icons/redux/redux-original.svg' },
     { name: 'Rails', logo: 'https://raw.githubusercontent.com/devicons/devicon/master/icons/rails/rails-original-wordmark.svg' },
-    { name: 'AWS', logo: 'https://raw.githubusercontent.com/devicons/devicon/master/icons/amazonwebservices/amazonwebservices-original.svg' },
+    { name: 'AWS', logo: 'https://raw.githubusercontent.com/devicons/devicon/master/icons/amazonwebservices/amazonwebservices-original-wordmark.svg' },
     { name: 'Heroku', logo: 'https://raw.githubusercontent.com/devicons/devicon/master/icons/heroku/heroku-original.svg' },
     { name: 'Docker', logo: 'https://raw.githubusercontent.com/devicons/devicon/master/icons/docker/docker-original.svg' },
     { name: 'GitHub', logo: 'https://raw.githubusercontent.com/devicons/devicon/master/icons/github/github-original.svg' },
@@ -54,17 +54,18 @@ const Skills = () => {
         <ScrollAnimation className="fade-down">
           <h2 className="section-title">Skills & Technologies</h2>
         </ScrollAnimation>
-        
-        <div className="marquee-container">
-          <div className="marquee">
-            {skillsData.map((skill, index) => (
-              <div key={index} className="skill-item">
-                <img src={skill.logo} alt={skill.name} className="skill-logo" />
-                <span className="skill-name">{skill.name}</span>
-              </div>
-            ))}
+        <ScrollAnimation className="skills" id="skills" animateIn="fadeInUp">
+          <div className="marquee-container">
+            <div className="marquee">
+              {skillsData.map((skill, index) => (
+                <div key={index} className="skill-item">
+                  <img src={skill.logo} alt={skill.name} className="skill-logo" />
+                  <span className="skill-name">{skill.name}</span>
+                </div>
+              ))}
+            </div>
           </div>
-        </div>
+        </ScrollAnimation>
       </div>
     </section>
   );

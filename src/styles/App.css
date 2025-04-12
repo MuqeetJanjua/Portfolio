@@ -25,6 +25,8 @@ body {
   color: var(--text-color);
   line-height: 1.6;
   transition: background-color 0.3s ease, color 0.3s ease;
+  scroll-behavior: smooth;
+  overflow-x: hidden;
 }
 
 .container {
@@ -138,6 +140,13 @@ section {
   background-color: var(--background-color);
   position: relative;
   overflow: hidden;
+  scroll-margin-top: 100px;
+  scroll-padding-top: 100px;
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
+  scroll-snap-align: start;
+  transition: transform 0.3s ease-out;
 }
 
 section::before {
@@ -148,6 +157,12 @@ section::before {
   right: 0;
   height: 1px;
   background: linear-gradient(90deg, transparent, var(--border-color), transparent);
+}
+
+html {
+  scroll-behavior: smooth;
+  scroll-padding-top: 100px;
+  scroll-snap-type: y proximity;
 }
 
 /* Global card styles */

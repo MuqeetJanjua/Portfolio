@@ -29,6 +29,38 @@ const Hero = () => {
     };
   }, []);
 
+  const easeInOutCubic = (t) => {
+    return t < 0.5 ? 4 * t * t * t : 1 - Math.pow(-2 * t + 2, 3) / 2;
+  };
+
+  const handleScroll = (e, targetId) => {
+    e.preventDefault();
+    const element = document.getElementById(targetId);
+    if (element) {
+      const navbarHeight = document.querySelector('.navbar').offsetHeight;
+      const startPosition = window.pageYOffset;
+      const targetPosition = element.getBoundingClientRect().top + startPosition - navbarHeight;
+      const distance = targetPosition - startPosition;
+      const duration = 1000; // 1 second
+      let start = null;
+
+      const animation = (currentTime) => {
+        if (start === null) start = currentTime;
+        const timeElapsed = currentTime - start;
+        const progress = Math.min(timeElapsed / duration, 1);
+        const easedProgress = easeInOutCubic(progress);
+        
+        window.scrollTo(0, startPosition + (distance * easedProgress));
+        
+        if (timeElapsed < duration) {
+          requestAnimationFrame(animation);
+        }
+      };
+
+      requestAnimationFrame(animation);
+    }
+  };
+
   const particles = [
     { type: 'small', count: 8 },
     { type: 'medium', count: 6 },
@@ -37,7 +69,7 @@ const Hero = () => {
   ];
 
   return (
-    <section id="hero" className="hero" ref={heroRef}>
+    <section id="home" className="hero" ref={heroRef}>
       <div className="background-gradient" />
       <div className="rotating-gradients" />
       <div className="particles">
@@ -58,10 +90,10 @@ const Hero = () => {
           Specializing in Django, Ruby on Rails, and React development.
         </p>
         <div className="hero-buttons">
-          <a href="#projects" className="hero-btn primary">
+          <a href="#projects" className="hero-btn primary" onClick={(e) => handleScroll(e, 'projects')}>
             View My Work
           </a>
-          <a href="#contact" className="hero-btn secondary">
+          <a href="#contact" className="hero-btn secondary" onClick={(e) => handleScroll(e, 'contact')}>
             Contact Me
           </a>
         </div>
