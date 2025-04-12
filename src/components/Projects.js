@@ -8,56 +8,43 @@ const Projects = () => {
     {
       title: 'GanarPro',
       description: 'A comprehensive construction project management tool that streamlines project tracking, resource allocation, and team collaboration.',
-      image: 'https://via.placeholder.com/400x200',
-      technologies: ['Django', 'React', 'PostgreSQL', 'AWS'],
-      contributions: 'Led the development of the project management module and implemented real-time collaboration features.',
-      impact: 'Reduced project completion time by 30% and improved team communication efficiency.',
-      link: 'https://github.com/yourusername/ganarpro'
+      technologies: ['Django', 'React', 'PostgreSQL', 'AWS', 'PostHog', 'Heroku', 'Cloudinary'],
+      stats: '30% reduction in project completion time',
+      link: 'https://app.ganarpro.com/'
     },
     {
       title: 'MovSentry',
-      description: 'A phishing email training platform that helps organizations educate their employees about cybersecurity threats.',
-      image: 'https://via.placeholder.com/400x200',
-      technologies: ['Ruby on Rails', 'React', 'MongoDB', 'Heroku'],
-      contributions: 'Developed the email simulation engine and implemented the training dashboard.',
-      impact: 'Reduced successful phishing attempts by 75% across client organizations.',
-      link: 'https://github.com/yourusername/movsentry'
+      description: 'A comprehensive cybersecurity training platform featuring phishing simulations, Outlook add-in, micro-training modules, and threat reporting system.',
+      technologies: ['Django', 'React', 'PostgreSQL', 'PostHog', 'VPS Hosting', 'Cloudinary', 'Outlook Add-in', 'AWS SES', 'Redis', 'Celery'],
+      stats: '75% reduction in phishing attempts, 50+ organizations, 10,000+ users',
+      link: 'http://admin.movsentry.com/'
     },
     {
       title: 'CraftPositions',
-      description: 'An online job opportunity platform connecting skilled craftsmen with potential employers.',
-      image: 'https://via.placeholder.com/400x200',
-      technologies: ['Django', 'React', 'PostgreSQL', 'AWS'],
-      contributions: 'Built the job matching algorithm and implemented the user profile system.',
-      impact: 'Facilitated over 500 successful job matches in the first year of operation.',
-      link: 'https://github.com/yourusername/craftpositions'
+      description: 'A comprehensive online job platform connecting skilled craftsmen with potential employers, featuring advanced search, real-time notifications, and a robust matching algorithm.',
+      technologies: ['Django', 'React', 'PostgreSQL', 'AWS', 'Redis', 'Celery', 'Stripe', 'SendGrid'],
+      stats: '500+ job matches, 60% faster hiring, 10,000+ users',
+      link: 'https://craftpositions.com/'
     },
     {
       title: 'Express Subscription Manager',
       description: 'A Shopify subscription management system that automates recurring payments and order processing.',
-      image: 'https://via.placeholder.com/400x200',
       technologies: ['Ruby on Rails', 'React', 'PostgreSQL', 'Heroku'],
-      contributions: 'Developed the subscription management module and payment processing system.',
-      impact: 'Increased subscription retention by 40% for client stores.',
+      stats: '40% increase in subscription retention',
       link: 'https://github.com/yourusername/express-subscription'
     },
     {
       title: 'Supplier Sync Application',
-      description: 'A dropshipping inventory synchronization tool that automates product updates across multiple platforms.',
-      image: 'https://via.placeholder.com/400x200',
-      technologies: ['Django', 'React', 'MongoDB', 'AWS'],
-      contributions: 'Created the inventory synchronization engine and API integration system.',
-      impact: 'Reduced manual inventory updates by 90% and improved order accuracy.',
-      link: 'https://github.com/yourusername/supplier-sync'
+      description: 'A comprehensive dropshipping inventory synchronization tool that automates product updates, pricing adjustments, and stock management across multiple e-commerce platforms.',
+      technologies: ['Ruby on Rails', 'React', 'MongoDB', 'AWS', 'Redis', 'Sidekiq', 'Shopify API'],
+      stats: '90% reduction in manual updates, 50+ connected stores, 100,000+ products synced daily'
     },
     {
       title: 'La Beau POS Dashboard',
-      description: 'A comprehensive shop management system for beauty salons and spas.',
-      image: 'https://via.placeholder.com/400x200',
+      description: 'A comprehensive shop management system for beauty salons and spas. Features appointment scheduling, inventory management, customer profiles, and sales analytics.',
       technologies: ['Ruby on Rails', 'React', 'PostgreSQL', 'Heroku'],
-      contributions: 'Developed the appointment scheduling system and inventory management module.',
-      impact: 'Increased operational efficiency by 50% and improved customer satisfaction.',
-      link: 'https://github.com/yourusername/la-beau-pos'
+      stats: '50% increase in operational efficiency',
+      link: 'https://labeaupos.com/'
     }
   ];
 
@@ -71,7 +58,6 @@ const Projects = () => {
           {projects.map((project, index) => (
             <ScrollAnimation key={index} className={`fade-up stagger-${(index % 6) + 1}`}>
               <div className="project-card">
-                <img src={project.image} alt={project.title} className="project-image" />
                 <div className="project-content">
                   <h3 className="project-title">{project.title}</h3>
                   <p className="project-description">{project.description}</p>
@@ -80,19 +66,16 @@ const Projects = () => {
                       <span key={techIndex} className="tech-tag">{tech}</span>
                     ))}
                   </div>
-                  <div className="project-contributions">
-                    <h4>Contributions</h4>
-                    <p>{project.contributions}</p>
+                  <div className="project-stats">
+                    <p>{project.stats}</p>
                   </div>
-                  <div className="project-impact">
-                    <h4>Impact</h4>
-                    <p>{project.impact}</p>
-                  </div>
-                  <div className="project-links">
-                    <a href={project.link} className="project-link" target="_blank" rel="noopener noreferrer">
-                      View Project
-                    </a>
-                  </div>
+                  {project.link && (
+                    <div className="project-links">
+                      <a href={project.link} className="project-link" target="_blank" rel="noopener noreferrer">
+                        View Project
+                      </a>
+                    </div>
+                  )}
                 </div>
               </div>
             </ScrollAnimation>

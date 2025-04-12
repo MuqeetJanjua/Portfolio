@@ -16,6 +16,7 @@
   grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
   gap: 2rem;
   margin-top: 3rem;
+  align-items: stretch;
 }
 
 .project-card {
@@ -25,6 +26,9 @@
   border: 1px solid rgba(59, 130, 246, 0.2);
   transition: all 0.3s ease;
   box-shadow: 0 4px 20px rgba(0, 0, 0, 0.2);
+  display: flex;
+  flex-direction: column;
+  height: 100%;
 }
 
 .project-card:hover {
@@ -42,25 +46,28 @@
 
 .project-content {
   padding: 2rem;
+  display: flex;
+  flex-direction: column;
+  flex-grow: 1;
+  gap: 1.5rem;
 }
 
 .project-title {
   color: #3b82f6;
   font-size: 1.5rem;
-  margin-bottom: 1rem;
+  margin-bottom: 0.5rem;
 }
 
 .project-description {
   color: #ffffff;
   line-height: 1.6;
-  margin-bottom: 1.5rem;
+  flex-grow: 1;
 }
 
 .project-tech {
   display: flex;
   flex-wrap: wrap;
   gap: 0.8rem;
-  margin-bottom: 1.5rem;
 }
 
 .tech-tag {
@@ -77,6 +84,16 @@
   background: rgba(59, 130, 246, 0.2);
   transform: translateY(-2px);
   color: #3b82f6;
+}
+
+.project-stats {
+  color: #3b82f6;
+  font-size: 0.95rem;
+  font-weight: 500;
+  padding: 0.8rem;
+  background: rgba(59, 130, 246, 0.1);
+  border-radius: 8px;
+  border: 1px solid rgba(59, 130, 246, 0.2);
 }
 
 .project-contributions,
@@ -98,7 +115,8 @@
 }
 
 .project-links {
-  margin-top: 1.5rem;
+  margin-top: auto;
+  padding-top: 1rem;
 }
 
 .project-link {

@@ -6,6 +6,7 @@ const Hero = () => {
   const [showTyping, setShowTyping] = useState(false);
 
   useEffect(() => {
+    const currentRef = heroRef.current;
     const observer = new IntersectionObserver(
       (entries) => {
         entries.forEach((entry) => {
@@ -18,13 +19,13 @@ const Hero = () => {
       { threshold: 0.1 }
     );
 
-    if (heroRef.current) {
-      observer.observe(heroRef.current);
+    if (currentRef) {
+      observer.observe(currentRef);
     }
 
     return () => {
-      if (heroRef.current) {
-        observer.unobserve(heroRef.current);
+      if (currentRef) {
+        observer.unobserve(currentRef);
       }
     };
   }, []);
